@@ -75,5 +75,33 @@ class LinkedList {
             return -1;
         return pos;
     }
+    public int size() {
+        Node temp = head;
+        int count = 0;
+        while(temp != null) {
+            temp = temp.next;
+            count++;
+        }
+        return count;
+    }
+    private boolean isEmpty() {
+        return (head == null);
+    }
+    public Document get(int index) {
+        if(isEmpty()) throw new IllegalStateException();
+        Node a = head;
+        Node b = head;
+        for(int i=0; i < index-1;i++) {
+            b = b.next;
+            if(b==null) throw new IllegalArgumentException();
+        }
+        while(b != tail) {
+            a = a.next;
+            b = b.next;
+        }
+        return a.data;
+    }
+
+
 
 }

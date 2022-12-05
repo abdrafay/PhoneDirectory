@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -24,7 +23,7 @@
                               <Font name="Arial" size="22.0" />
                            </font>
                         </Label>
-                        <FontAwesomeIconView fill="#f4f4f4" glyphName="PHONE" layoutX="25.0" layoutY="126.0" />
+                        <FontAwesomeIconView fill="#f4f4f4" glyphName="PHONE" layoutX="25.0" layoutY="126.0" text="" />
                         <Label layoutX="45.0" layoutY="113.0" text="+92 3321307105" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="12.0" />
@@ -47,11 +46,8 @@
                         <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
-                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <TextField fx:id="tf" layoutX="31.0" layoutY="39.0" />
-                     </children></Pane>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create Contact" textFill="WHITE">
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="createContactBtn" mnemonicParsing="false" onAction="#createContactButtonAction" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create Contact" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
                      </graphic>
@@ -79,31 +75,7 @@
                <children>
                   <ScrollPane prefHeight="367.0" prefWidth="686.0">
                      <content>
-                        <VBox prefHeight="362.0" prefWidth="679.0">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                                 <children>
-                                    <Label fx:id="myname" alignment="CENTER" contentDisplay="CENTER" prefWidth="150.0" text="Abdul Rafay" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="180.0" text="+92332-1307105" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="180.0" text="zainrafay12@gmail.com" />
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;">
-                                             <graphic>
-                                                <FontAwesomeIconView glyphName="EYE" />
-                                             </graphic>
-                                          </Button>
-                                          <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;">
-                                             <graphic>
-                                                <FontAwesomeIconView glyphName="PENCIL" />
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
+                        <VBox fx:id="contactsLayout" prefHeight="362.0" prefWidth="679.0" />
                      </content>
                   </ScrollPane>
                </children>

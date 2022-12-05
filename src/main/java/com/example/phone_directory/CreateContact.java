@@ -8,6 +8,6 @@ import java.util.ResourceBundle;
 public class CreateContact implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        System.out.println("Hello from Contact");
     }
 }
