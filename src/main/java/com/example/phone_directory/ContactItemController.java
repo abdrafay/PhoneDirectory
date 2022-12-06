@@ -27,9 +27,6 @@ public class ContactItemController implements Initializable {
     private Button viewBtn;
 
     public void setData(Document document) {
-//        System.out.println(document.get("first_name"));
-//        System.out.println();
-//        this.email.getText();
         this.name.setText(document.getString("first_name") + " " + document.getString("last_name"));
         this.phone.setText(document.getString("phone_no"));
         this.email.setText(document.getString("email"));

@@ -1,6 +1,12 @@
 package com.example.phone_directory;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import org.bson.Document;
+
+import java.awt.*;
+
 class LinkedList {
     private class Node{
         Document data;
@@ -51,19 +57,6 @@ class LinkedList {
             current = null;
         }
     }
-    public void print(){
-        if(head == null)
-        {
-            System.out.println("List is empty");
-            return;
-        }
-        Node current = head;
-        while(current != null){
-            System.out.println(current.data+" ");
-            current = current.next;
-        }
-        System.out.println();
-    }
     private int search(Node head_ref, Document x) {
         Node temp = head_ref;
         int pos = 0;
@@ -84,24 +77,30 @@ class LinkedList {
         }
         return count;
     }
-    private boolean isEmpty() {
-        return (head == null);
-    }
-    public Document get(int index) {
-        if(isEmpty()) throw new IllegalStateException();
-        Node a = head;
-        Node b = head;
-        for(int i=0; i < index-1;i++) {
-            b = b.next;
-            if(b==null) throw new IllegalArgumentException();
+    public void getData(VBox obj) {
+        Node temp = head;
+        if(head == null)
+        {
+            Label label = new Label();
+            label.setText("No Item Found");
+//            obj.getChildren().add(label);
+
+            return;
         }
-        while(b != tail) {
-            a = a.next;
-            b = b.next;
+        while(temp != null) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("contact-item.fxml"));
+            System.out.println("loaded");
+            try{
+                HBox hbox = loader.load();
+                ContactItemController cic = loader.getController();
+                cic.setData(temp.data);
+                obj.getChildren().add(hbox);
+
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+            temp = temp.next;
         }
-        return a.data;
     }
-
-
-
 }

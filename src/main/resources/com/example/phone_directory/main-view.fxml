@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -46,20 +48,30 @@
                         <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
-                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="createContactBtn" mnemonicParsing="false" onAction="#createContactButtonAction" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create Contact" textFill="WHITE">
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
-                     </graphic>
-                  </Button>
+                  <Pane prefHeight="77.0" prefWidth="299.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="searchField" layoutY="26.0" prefHeight="25.0" prefWidth="291.0" promptText="Search">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children></Pane>
                   <Button minWidth="35.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="35.0" style="-fx-background-radius: 30px; -fx-background-color: transparent;">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SEARCH" size="17" strokeWidth="0.0">
+                        <FontAwesomeIconView fx:id="srcBtn" glyphName="SEARCH" size="17" strokeWidth="0.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </FontAwesomeIconView>
                      </graphic>
+                  </Button>
+                  <Button fx:id="createContactBtn" mnemonicParsing="false" onAction="#createContactButtonAction" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create Contact" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>
