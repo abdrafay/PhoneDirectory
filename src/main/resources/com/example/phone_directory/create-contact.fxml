@@ -58,7 +58,7 @@
                   <Font name="Arial Bold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="newContact" layoutX="234.0" layoutY="247.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create" textFill="WHITE" />
+            <Button fx:id="newContact" layoutX="234.0" layoutY="247.0" onAction="#create" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" style="-fx-background-radius: 20px; -fx-background-color: #0047AB;" text="Create" textFill="WHITE" />
          </children>
       </Pane>
    </center>

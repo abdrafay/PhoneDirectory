@@ -23,7 +23,7 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        Main.contacts = db.getCollection("Contacts");
+        Main.contacts = db.getCollectionList("Contacts");
 //        String name = (String) Main.contacts.get(0).get("first_name")+(String) Main.contacts.get(0).get("last_name");
 //        System.out.println(name);
 //        NAVLTree t = new NAVLTree();

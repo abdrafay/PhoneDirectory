@@ -15,9 +15,14 @@ public class DB {
         client = MongoClients.create("mongodb+srv://zrdatastore:PYSs2Xuydz7maLG5@cluster0.qnire.mongodb.net");
         database = client.getDatabase("PhoneDirectory");
     }
-     List<Document> getCollection(String collectionName) {
+     List<Document> getCollectionList(String collectionName) {
         MongoCollection<Document> collection = database.getCollection(collectionName);
         return collection.find().into(new ArrayList<>());
     }
+    MongoCollection<Document> getCollection(String collectionName) {
+        return database.getCollection(collectionName);
+    }
+
+
 
 }

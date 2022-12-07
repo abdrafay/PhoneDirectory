@@ -77,7 +77,7 @@ class LinkedList {
         }
         return count;
     }
-    public void getData(VBox obj) {
+    public void getData(VBox obj, MainViewController parent) {
         Node temp = head;
         if(head == null)
         {
@@ -88,12 +88,14 @@ class LinkedList {
             return;
         }
         while(temp != null) {
+            System.out.println("Get Data");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("contact-item.fxml"));
-            System.out.println("loaded");
+
             try{
                 HBox hbox = loader.load();
                 ContactItemController cic = loader.getController();
+                cic.setParent(parent);
                 cic.setData(temp.data);
                 obj.getChildren().add(hbox);
 

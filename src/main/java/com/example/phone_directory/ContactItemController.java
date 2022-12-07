@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 public class ContactItemController implements Initializable {
 
     @FXML
-    private Button editBtn;
+    private Button delBtn;
 
     @FXML
     private Label email;
@@ -25,14 +25,31 @@ public class ContactItemController implements Initializable {
 
     @FXML
     private Button viewBtn;
+    Document document;
+    MainViewController parent;
 
+    public void setParent(MainViewController parent) {
+        this.parent = parent;
+    }
     public void setData(Document document) {
+        this.document = document;
         this.name.setText(document.getString("first_name") + " " + document.getString("last_name"));
         this.phone.setText(document.getString("phone_no"));
         this.email.setText(document.getString("email"));
     }
+
+    public void setView() {
+        parent.name.setText(this.name.getText());
+        parent.email.setText(this.email.getText());
+        parent.number.setText(this.phone.getText());
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        viewBtn.setOnAction(e-> {
+            setView();
+        });
+        delBtn.setOnAction(e-> {
+            parent.deleteDocument(document);
+        });
     }
 }

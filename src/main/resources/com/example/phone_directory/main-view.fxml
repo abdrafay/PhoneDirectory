@@ -20,17 +20,26 @@
                <children>
                   <Pane prefHeight="406.0" prefWidth="192.0">
                      <children>
-                        <Label alignment="CENTER" layoutY="58.0" prefHeight="22.0" prefWidth="192.0" style="-fx-text-alignment: center;" text="Abdul Rafay" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="name" alignment="CENTER" layoutY="129.0" prefHeight="22.0" prefWidth="192.0" style="-fx-text-alignment: center;" text="Abdul Rafay" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="22.0" />
                            </font>
                         </Label>
-                        <FontAwesomeIconView fill="#f4f4f4" glyphName="PHONE" layoutX="25.0" layoutY="126.0" text="" />
-                        <Label layoutX="45.0" layoutY="113.0" text="+92 3321307105" textFill="WHITE">
+                        <FontAwesomeIconView fill="#7bb2ff" glyphName="PHONE" layoutX="10.0" layoutY="197.0" text="" />
+                        <Label fx:id="number" layoutX="14.0" layoutY="207.0" text="+92 3321307105" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>
                         </Label>
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="71.0" layoutY="102.0" size="70" text="" textAlignment="CENTER" />
+                        <Label fx:id="email" layoutX="15.0" layoutY="262.0" text="zainrafay12@gmail.com" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="239.0" style="-fx-text-fill: #7bb2ff;" text="Email" textFill="#7bb2ff" />
+                        <FontAwesomeIconView fill="#7bb2ff" glyphName="ENVELOPE" layoutX="9.0" layoutY="252.0" />
+                        <Label layoutX="28.0" layoutY="183.0" style="-fx-text-fill: #7bb2ff;" text="Phone Number" textFill="#7bb2ff" />
                      </children>
                   </Pane>
                </children>
@@ -56,9 +65,9 @@
                            </font>
                         </TextField>
                      </children></Pane>
-                  <Button minWidth="35.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="35.0" style="-fx-background-radius: 30px; -fx-background-color: transparent;">
+                  <Button fx:id="srcBtn" minWidth="35.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="35.0" style="-fx-background-radius: 30px; -fx-background-color: transparent;">
                      <graphic>
-                        <FontAwesomeIconView fx:id="srcBtn" glyphName="SEARCH" size="17" strokeWidth="0.0">
+                        <FontAwesomeIconView glyphName="SEARCH" size="17" strokeWidth="0.0">
                            <font>
                               <Font size="18.0" />
                            </font>
