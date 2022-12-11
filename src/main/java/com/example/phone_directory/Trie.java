@@ -34,6 +34,7 @@ public class Trie {
     public void insert(String word) {
         if(word == null)
             return;
+        word = word.toLowerCase();
         Node current = root;
         for(char ch: word.toCharArray()){
             if(!current.hasChild(ch))
@@ -56,6 +57,7 @@ public class Trie {
     public void remove(String word) {
         if(word == null)
             return;
+        word.toLowerCase();
         remove(root, word, 0);
     }
     private void remove(Node root, String word, int index){
@@ -76,6 +78,9 @@ public class Trie {
         var lastNode = findLastNode(prefix);
         List<String> words = new ArrayList<>();
         getSuggestions(lastNode, prefix, words);
+        for(int i = 0; i< words.size(); i++){
+            words.set(i,capatilaize(words.get(i)));
+        }
         return words;
     }
     private void getSuggestions(Node root, String prefix, List<String> word){
@@ -98,6 +103,26 @@ public class Trie {
             current = child;
         }
         return current;
+    }
+    public String capatilaize(String str) {
+
+        char[] charArray = str.toCharArray();
+        boolean foundSpace = true;
+
+        for(int i = 0; i < charArray.length; i++) {
+            if(Character.isLetter(charArray[i])) {
+                if(foundSpace) {
+                    charArray[i] = Character.toUpperCase(charArray[i]);
+                    foundSpace = false;
+                }
+            }
+            else {
+                foundSpace = true;
+            }
+        }
+
+        // convert the char array to the string
+        return String.valueOf(charArray);
     }
 
 }

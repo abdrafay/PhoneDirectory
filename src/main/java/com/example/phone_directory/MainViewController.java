@@ -18,16 +18,17 @@ import javafx.stage.Stage;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.*;
+
 import org.controlsfx.control.textfield.TextFields;
+
+import static com.mongodb.client.model.Filters.all;
 import static com.mongodb.client.model.Filters.eq;
 
 import javax.print.Doc;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 
 public class MainViewController implements Initializable {
@@ -46,17 +47,14 @@ public class MainViewController implements Initializable {
 
     private String[] suggestions = {""};
 
-    private Set<String> suggestionsList = new HashSet<>(Arrays.asList(suggestions));
+    private Set<String> suggestionsList = new HashSet<>();
+
     Contacts allContacts;
     public void initialize(URL url, ResourceBundle rs) {
-        System.out.println("hello");
-//        for(Document item : Main.contacts){
-//
-//        }
         this.allContacts = new Contacts();
         LinkedList l = allContacts.getSortedContacts();
         l.getData(contactsLayout, this);
-        autoCompletionBinding = TextFields.bindAutoCompletion(searchField, suggestions);
+        autoCompletionBinding = TextFields.bindAutoCompletion(searchField, suggestionsList);
         srcBtn.setOnAction(e -> {
             System.out.println("Searched");
             var d = allContacts.searchByName(searchField.getText());
@@ -66,34 +64,20 @@ public class MainViewController implements Initializable {
             }
         });
 
-        searchField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-
-                if(keyEvent.getCode() == KeyCode.ENTER) {
-                    System.out.println("Entered");
-                    var d = allContacts.searchByName(searchField.getText());
-                    if(d != null)
-                        setSideView(d);
-                } else {
-                    autoCompletionBinding.dispose();
-                    try {
-                        keyEvent.wait();
-                    } catch (Exception e) {
-                        System.out.println("waiting");
-                    }
-                    updateFieldData(searchField.getText());
+        searchField.setOnKeyPressed((KeyEvent e) -> {
+                autoCompletionBinding.dispose();
+                switch (e.getCode()) {
+                    case ENTER:
+                        var d = allContacts.searchByName(searchField.getText());
+                        if(d != null)
+                            setSideView(d);
+                        break;
+                    default:
+                        updateFieldData(searchField.getText());
+                        break;
                 }
-//                switch (keyEvent.getCode()) {
-//                    case ENTER:
-//
-//                        break;
-//                    default:
-//
-//                        break;
-//                }
-            }
-        });
+           });
+
 
     }
     public void deleteDocument(Document document) {
@@ -112,19 +96,17 @@ public class MainViewController implements Initializable {
         this.email.setText(d.getString("email"));
     }
     private void updateFieldData(String text) {
-        System.out.println("text");
-//        System.out.println(text);
-        System.out.println(text);
-        System.out.println(allContacts.getSuggestions(text));
-//        suggestionsList.
-//        suggestionsList = new HashSet<>(allContacts.getSuggestions(text));
-//        if(autoCompletionBinding != null) {
-//            autoCompletionBinding.dispose();
-//        }
-
-
+//        https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
+        List<String> list = allContacts.getSuggestions(text.trim());
+        suggestionsList.clear();
+        for(String item : list) {
+            suggestionsList.add(item);
+        }
         autoCompletionBinding.dispose();
-        autoCompletionBinding = TextFields.bindAutoCompletion(searchField, allContacts.getSuggestions(text.trim()));
+        if(list != null) {
+            autoCompletionBinding = TextFields.bindAutoCompletion(searchField, suggestionsList);
+        }
+
     }
     @FXML
     private void createContactButtonAction(ActionEvent event) throws IOException {

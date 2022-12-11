@@ -1,6 +1,6 @@
 package com.example.phone_directory;
-
 import org.bson.Document;
+
 
 public class CAVLTree {
     private class Node {
@@ -70,24 +70,26 @@ public class CAVLTree {
             return -1;
         return node.height;
     }
-    public void delete(long target){
-        delete(root,target);
+    public void delete(String target){
+        target = target.replaceAll(" ","");
+        target = target.toLowerCase();
+        root = delete(root,target);
     }
-    private Node delete(Node node, long target) {
+    private Node delete(Node node, String target) {
         if(node == null)
             return null;
         if(node.left == null && node.right == null){
             node = null;
             return null;
         }
-        if(target < number(node.data))
+        if(target.compareToIgnoreCase(name(node.data)) < 0)
             node.left = delete(node.left, target);
-        else if (target > number(node.data))
+        else if (target.compareToIgnoreCase(name(node.data)) > 0)
             node.right = delete(node.right, target);
         else{
             Node successor = succ(node.right);
             node.data = successor.data;
-            node.right = delete(node.right, number(successor.data));
+            node.right = delete(node.right, name(successor.data));
         }
         return balance(node);
     }
@@ -98,10 +100,7 @@ public class CAVLTree {
         return node;
     }
     private String name(Document doc){
-        return ((String)doc.get("first_name")+(String)doc.get("last_name"));
-    }
-    private long number(Document doc){
-        return Long.parseLong((String)doc.get("phone_no"));
+        return (doc.get("first_name")+(String)doc.get("last_name")).replaceAll(" ","").toLowerCase();
     }
     public LinkedList InOrder(){
         LinkedList list = new LinkedList();
@@ -119,6 +118,7 @@ public class CAVLTree {
     }
     public Document search(String name){
         name = name.replaceAll(" ","");
+        name = name.toLowerCase();
         return search(root,name);
     }
     private Document search(Node root, String name){
