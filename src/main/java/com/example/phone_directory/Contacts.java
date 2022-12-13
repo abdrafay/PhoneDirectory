@@ -6,16 +6,13 @@ import java.util.List;
 
 public class Contacts {
     private Trie trie;
-//    private NAVLTree navlTree;
     private CAVLTree cavlTree;
     public Contacts(){
         trie = new Trie();
-//        navlTree = new NAVLTree();
         cavlTree = new CAVLTree();
         for (int i = 0; i < Main.contacts.size(); i++) {
             String name = (String) Main.contacts.get(i).get("first_name")+" "+(String) Main.contacts.get(i).get("last_name");
             trie.insert(name);
-//            navlTree.insert(Main.contacts.get(i));
             cavlTree.insert(Main.contacts.get(i));
         }
     }
@@ -27,12 +24,10 @@ public class Contacts {
     }
     public void update(Document doc){
         trie.insert((doc.get("first_name")+" "+(String)doc.get("last_name")));
-//        navlTree.insert(doc);
         cavlTree.insert(doc);
     }
     public void delete(Document doc){
         trie.remove(doc.get("first_name")+" "+(String)doc.get("last_name"));
-//        navlTree.delete(Long.parseLong((String)doc.get("phone_no")));
         cavlTree.delete(doc.get("first_name")+" "+(String)doc.get("last_name"));
     }
     public Document searchByName(String name){

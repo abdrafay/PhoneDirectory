@@ -120,8 +120,6 @@ public class Trie {
                 foundSpace = true;
             }
         }
-
-        // convert the char array to the string
         return String.valueOf(charArray);
     }
 

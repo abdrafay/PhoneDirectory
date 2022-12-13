@@ -23,27 +23,12 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        Main.contacts = db.getCollectionList("Contacts");
+        Main.contacts = db.getCollectionList("contacts");
         System.out.println("Hello");
-//        String name = (String) Main.contacts.get(0).get("first_name")+(String) Main.contacts.get(0).get("last_name");
-//        System.out.println(name);
-//        NAVLTree t = new NAVLTree();
-//        for (int i = 0; i < contacts.size(); i++) {
-//            t.insert(contacts.get(i));
-//        }
-//        var d = t.search();
-//        System.out.println(d);
-//        LinkedList l  =t.InOrder();
-//        l.print();
-//        var doc = contacts.get(0);
-//        long x = Long.parseLong((String)doc.get("phone_no"));
-//        System.out.println(x);
         Scene scene = new Scene(loadFXML("main-view").load());
         stage.setTitle("Phone Directory");
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     public static void main(String[] args) {

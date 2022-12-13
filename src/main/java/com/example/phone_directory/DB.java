@@ -22,7 +22,4 @@ public class DB {
     MongoCollection<Document> getCollection(String collectionName) {
         return database.getCollection(collectionName);
     }
-
-
-
 }

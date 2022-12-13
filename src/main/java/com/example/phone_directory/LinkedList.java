@@ -83,8 +83,6 @@ class LinkedList {
         {
             Label label = new Label();
             label.setText("No Item Found");
-//            obj.getChildren().add(label);
-
             return;
         }
         while(temp != null) {
