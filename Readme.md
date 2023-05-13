@@ -1,34 +1,36 @@
 # Data Structure Project
 # <center>Phone Directory</center>
 
-<h3>Introduction</h3>
-* GUI BASED Phone Directory
-<h3>Introduction</h3>
-* IntelliJ Idea
-<h3>GUI FrameWork</h3>
-* javafx
-<h3>Database</h3>
-* MongoDB
-<h3>Features</h3>
-* Add Contacts
-* Search Contacts
-* Delete Contacts
+### Introduction
+- GUI BASED Phone Directory using IntelliJ Idea
 
-<h3>Data Structures Used</h3>
-* Trie
-* Avl Tree
-* LinkedList
-* Hashmaps
+### GUI Framework
+- JavaFX
 
-<h3>Algorithm Used</h3>
-* DFS(Depth First Search)
-* Binary Search
-* Bubble Sort
+### Database
+- MongoDB
 
-<h3>Flow Of Program</h3>
-* All the contacts are stored in the database
-* They are retrieved from database and stored in AVL tree and trie
-* They are displayed through Linked List on GUI
+### Features
+- Add Contacts
+- Search Contacts
+- Delete Contacts
+
+### Data Structures Used
+- Trie
+- AVL Tree
+- LinkedList
+- Hashmaps
+
+### Algorithms Used
+- DFS (Depth First Search)
+- Binary Search
+- Bubble Sort
+
+### Flow Of Program
+1. All the contacts are stored in the database
+2. They are retrieved from the database and stored in AVL tree and trie
+3. They are displayed through Linked List on the GUI
+
 
 ## Interface
 
