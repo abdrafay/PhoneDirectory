@@ -18,6 +18,7 @@ MongoDB
 - Trie
 - Avl Tree
 - LinkedList
+- Hashmaps
 
 <h3>Algorithm Used</h3>
 - DFS(Depth First Search)
