@@ -2,33 +2,33 @@
 # <center>Phone Directory</center>
 
 <h3>Introduction</h3>
-GUI BASED Phone Directory
+* GUI BASED Phone Directory
 <h3>Introduction</h3>
-IntelliJ Idea
+* IntelliJ Idea
 <h3>GUI FrameWork</h3>
-javafx
+* javafx
 <h3>Database</h3>
-MongoDB
+* MongoDB
 <h3>Features</h3>
-- Add Contacts
-- Search Contacts
-- Delete Contacts
+* Add Contacts
+* Search Contacts
+* Delete Contacts
 
 <h3>Data Structures Used</h3>
-- Trie
-- Avl Tree
-- LinkedList
-- Hashmaps
+* Trie
+* Avl Tree
+* LinkedList
+* Hashmaps
 
 <h3>Algorithm Used</h3>
-- DFS(Depth First Search)
-- Binary Search
-- Bubble Sort
+* DFS(Depth First Search)
+* Binary Search
+* Bubble Sort
 
 <h3>Flow Of Program</h3>
-- All the contacts are stored in the database
-- They are retrieved from database and stored in AVL tree and trie
-- They are displayed through Linked List on GUI
+* All the contacts are stored in the database
+* They are retrieved from database and stored in AVL tree and trie
+* They are displayed through Linked List on GUI
 
 ## Interface
 
